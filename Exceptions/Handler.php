@@ -39,6 +39,8 @@ class Handler extends ExceptionHandler
 	 */
 	public function render($request, Exception $e)
 	{
+	    royalcms('exception.display')->setDebugDisplayer(royalcms('exception.default'));
+
 		return parent::render($request, $e);
 	}
 
