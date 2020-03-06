@@ -27,7 +27,7 @@ class Kernel extends HttpKernel
 	 * @var array
 	 */
 	protected $routeMiddleware = [
-		'verify_csrf_token' => 'Ecjia\System\Http\Middleware\VerifyCsrfToken',
+		'verify_csrf_token' => 'Ecjia\Kernel\Http\Middleware\VerifyCsrfToken',
 
 //		'auth' => 'App\Http\Middleware\Authenticate',
 //		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
