@@ -46,7 +46,7 @@
 //
 namespace Ecjia\Kernel\Console;
 
-use Royalcms\Component\Console\Scheduling\Schedule;
+use \Illuminate\Console\Scheduling\Schedule;
 use Royalcms\Component\Contracts\Foundation\Royalcms;
 use Royalcms\Component\Contracts\Events\Dispatcher;
 use Royalcms\Component\Foundation\Console\Kernel as ConsoleKernel;
@@ -107,18 +107,4 @@ class Kernel extends ConsoleKernel
         }
     }
 
-    /**
-     * 定义应用程序的命令调度。
-     *
-     * @param  \Royalcms\Component\Console\Scheduling\Schedule  $schedule
-     * @return void
-     */
-    protected function schedule(Schedule $schedule)
-    {
-//         $schedule->call(function () {
-           
-//         })->daily();
-        
-        $schedule->command('test:log')->everyOneMinutes();
-    }
 }
