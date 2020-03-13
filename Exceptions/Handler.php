@@ -25,20 +25,22 @@ class Handler extends ExceptionHandler
 	 * @param  \Throwable  $e
 	 * @return void
      *
-     * @throws \Exception
+     * @throws \Throwable
 	 */
 	public function report(Throwable $e)
 	{
 		parent::report($e);
 	}
 
-	/**
-	 * Render an exception into an HTTP response.
-	 *
-	 * @param  \Royalcms\Component\Http\Request  $request
-	 * @param  \Throwable  $e
-	 * @return \Royalcms\Component\Http\Response
-	 */
+    /**
+     * Render an exception into an HTTP response.
+     *
+     * @param \Royalcms\Component\Http\Request $request
+     * @param \Throwable $e
+     * @return \Royalcms\Component\Http\Response
+     *
+     * @throws Throwable
+     */
 	public function render($request, Throwable $e)
 	{
 		return parent::render($request, $e);
