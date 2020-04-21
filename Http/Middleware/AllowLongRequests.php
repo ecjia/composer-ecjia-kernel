@@ -9,7 +9,7 @@ use Closure;
 class AllowLongRequests
 {
 
-    public function handler($request, Closure $next)
+    public function handle($request, Closure $next)
     {
         set_time_limit(3000);
 
