@@ -18,7 +18,7 @@ class Kernel extends HttpKernel
 //		'Royalcms\Component\Cookie\Middleware\AddQueuedCookiesToResponse',
 //		'Royalcms\Component\Session\Middleware\StartSession',
 //		'Royalcms\Component\View\Middleware\ShareErrorsFromSession',
-//		'Ecjia\System\Http\Middleware\VerifyCsrfToken',
+		'Ecjia\Kernel\Http\Middleware\AllowLongRequests',
 	];
 
 	/**
