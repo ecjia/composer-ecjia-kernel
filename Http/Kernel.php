@@ -13,12 +13,14 @@ class Kernel extends HttpKernel
 	 * @var array
 	 */
 	protected $middleware = [
-//		'Royalcms\Component\Foundation\Http\Middleware\CheckForMaintenanceMode',
+        'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
+        'Ecjia\Kernel\Http\Middleware\AllowLongRequests',
+
 //		'Royalcms\Component\Cookie\Middleware\EncryptCookies',
 //		'Royalcms\Component\Cookie\Middleware\AddQueuedCookiesToResponse',
 //		'Royalcms\Component\Session\Middleware\StartSession',
 //		'Royalcms\Component\View\Middleware\ShareErrorsFromSession',
-		'Ecjia\Kernel\Http\Middleware\AllowLongRequests',
+
 	];
 
 	/**
