@@ -46,7 +46,7 @@
 //
 namespace Ecjia\Kernel\Console;
 
-use \Illuminate\Console\Scheduling\Schedule;
+use RC_Hook;
 use Royalcms\Component\Contracts\Foundation\Royalcms;
 use Royalcms\Component\Contracts\Events\Dispatcher;
 use Royalcms\Component\Foundation\Console\Kernel as ConsoleKernel;
@@ -85,7 +85,7 @@ class Kernel extends ConsoleKernel
             |
             */
 
-            $path = $royalcms['path.system'].'/start/command.php';
+            $path = $royalcms->contentPath().'/routes/command.php';
 
             if (file_exists($path)) require $path;
 
@@ -102,8 +102,8 @@ class Kernel extends ConsoleKernel
         parent::bootstrap();
 
         // not do something, do something...
-        if (! \RC_Hook::did_action('console_init')) {
-            \RC_Hook::do_action('console_init');
+        if (! RC_Hook::did_action('console_init')) {
+            RC_Hook::do_action('console_init');
         }
     }
 
