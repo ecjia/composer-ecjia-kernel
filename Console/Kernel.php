@@ -46,7 +46,9 @@
 //
 namespace Ecjia\Kernel\Console;
 
+use ecjia_app;
 use RC_Hook;
+use RC_Loader;
 use Royalcms\Component\Contracts\Foundation\Royalcms;
 use Royalcms\Component\Contracts\Events\Dispatcher;
 use Royalcms\Component\Foundation\Console\Kernel as ConsoleKernel;
@@ -101,10 +103,26 @@ class Kernel extends ConsoleKernel
     {
         parent::bootstrap();
 
+        //add hook to init
+        $this->loadingAppConsoleHookSubscriber();
+
         // not do something, do something...
-        if (! RC_Hook::did_action('console_init')) {
-            RC_Hook::do_action('console_init');
-        }
+        RC_Hook::do_action('console_init');
+    }
+
+    public function loadingAppConsoleHookSubscriber()
+    {
+        collect(ecjia_app::installed_app_floders())->each(function($app) {
+            //loading hooks
+            RC_Loader::load_app_class('hooks.console_' . $app, $app, false);
+
+            //loading subscriber
+            $bundle = royalcms('app')->driver($app);
+            $class = $bundle->getNamespace() . '\Subscribers\ConsoleHookSubscriber';
+            if (class_exists($class)) {
+                royalcms('Royalcms\Component\Hook\Dispatcher')->subscribe($class);
+            }
+        });
     }
 
 }
