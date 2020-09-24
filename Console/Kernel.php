@@ -112,6 +112,16 @@ class Kernel extends ConsoleKernel
 
     public function loadingAppConsoleHookSubscriber()
     {
+        /*
+        |--------------------------------------------------------------------------
+        | Application Routes
+        |--------------------------------------------------------------------------
+        |
+        | Here is where you can register all of the routes for an application.
+        | It's a breeze. Simply tell Royalcms the URIs it should respond to
+        | and give it the Closure to execute when that URI is requested.
+        |
+        */
         collect(ecjia_app::installed_app_floders())->each(function($app) {
             //loading hooks
             RC_Loader::load_app_class('hooks.console_' . $app, $app, false);
