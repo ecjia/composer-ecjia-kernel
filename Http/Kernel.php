@@ -15,8 +15,11 @@ class Kernel extends HttpKernel
 	 * @var array
 	 */
 	protected $middleware = [
-        'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
+        'Ecjia\Kernel\Http\Middleware\ForceSecureRequests',
+        'Ecjia\Kernel\Http\Middleware\TrustProxies',
         'Ecjia\Kernel\Http\Middleware\AllowLongRequests',
+        'Ecjia\Kernel\Http\Middleware\PreventRequestsDuringMaintenance',
+        \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
 
 //		'Royalcms\Component\Cookie\Middleware\EncryptCookies',
 //		'Royalcms\Component\Cookie\Middleware\AddQueuedCookiesToResponse',
