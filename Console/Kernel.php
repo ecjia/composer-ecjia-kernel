@@ -46,7 +46,6 @@
 //
 namespace Ecjia\Kernel\Console;
 
-use ecjia_app;
 use RC_Hook;
 use RC_Loader;
 use Royalcms\Component\Contracts\Foundation\Royalcms;
@@ -122,7 +121,7 @@ class Kernel extends ConsoleKernel
         | and give it the Closure to execute when that URI is requested.
         |
         */
-        collect(ecjia_app::installed_app_floders())->each(function($app) {
+        collect(config('bundles', []))->each(function($app) {
             //loading hooks
             RC_Loader::load_app_class('hooks.console_' . $app, $app, false);
 

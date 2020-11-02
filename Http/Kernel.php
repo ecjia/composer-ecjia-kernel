@@ -60,7 +60,7 @@ class Kernel extends HttpKernel
         | and give it the Closure to execute when that URI is requested.
         |
         */
-        collect(config('bundles', []))->map(function ($app) {
+        collect(config('bundles', []))->each(function ($app) {
             //loading hooks
             RC_Loader::load_app_class('hooks.route_' . $app, $app, false);
 
