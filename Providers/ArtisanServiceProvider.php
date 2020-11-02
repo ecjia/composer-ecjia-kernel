@@ -20,4 +20,25 @@ class ArtisanServiceProvider extends RoyalcmsArtisanServiceProvider
         'QueueWork' => 'command.queue.work',
     ];
 
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->registerMyCommands();
+    }
+
+    /**
+     * Register the Commands
+     */
+    protected function registerMyCommands()
+    {
+        $commands = config('commands');
+
+        $this->commands($commands);
+    }
+
 }
