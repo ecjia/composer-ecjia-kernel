@@ -19,10 +19,11 @@ class Kernel extends HttpKernel
         'Ecjia\Kernel\Http\Middleware\TrustProxies',
         'Ecjia\Kernel\Http\Middleware\AllowLongRequests',
         'Ecjia\Kernel\Http\Middleware\PreventRequestsDuringMaintenance',
-        \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
+        'Illuminate\Foundation\Http\Middleware\ValidatePostSize',
 
 //		'Royalcms\Component\Cookie\Middleware\EncryptCookies',
-//		'Royalcms\Component\Cookie\Middleware\AddQueuedCookiesToResponse',
+		'Royalcms\Component\Cookie\Middleware\AddQueuedCookiesToResponse',
+
 //		'Royalcms\Component\Session\Middleware\StartSession',
 //		'Royalcms\Component\View\Middleware\ShareErrorsFromSession',
 
