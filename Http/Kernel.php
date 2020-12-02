@@ -27,6 +27,8 @@ class Kernel extends HttpKernel
 //		'Royalcms\Component\Session\Middleware\StartSession',
 //		'Royalcms\Component\View\Middleware\ShareErrorsFromSession',
 
+        'Ecjia\System\Middleware\CheckInstalledEcjiaSystemMiddleware',
+
 	];
 
 	/**
